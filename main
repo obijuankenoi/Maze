@@ -1,0 +1,110 @@
+import turtle
+
+def Start():
+    turtle.showturtle()
+    turtle.penup()
+    turtle.goto(-285,290)
+    turtle.setheading(0)
+
+def DrawMaze():
+    turtle.speed(0)
+   # turtle.hideturtle()
+    #Draws first line under turtle
+    turtle.penup()
+    turtle.goto(-298,280)
+    turtle.pendown()
+    turtle.forward(20)
+    turtle.write("Start")
+    #Draws wall in front of turtle start
+    turtle.penup()
+    turtle.forward(30)
+    turtle.setheading(90)
+    turtle.forward(25)
+    #Draws line from wall to edge
+    turtle.setheading(270)
+    turtle.pendown()
+    turtle.forward(50)
+    turtle.setheading(180)
+    turtle.forward(30)
+    #Draws line all the way down
+    turtle.setheading(270)
+    for x in range(4):
+        turtle.forward(25)
+        turtle.penup()
+        turtle.forward(25)
+        turtle.pendown()
+    #Draws line at bottom
+    turtle.penup()
+    turtle.setheading(180)
+    turtle.forward(25)
+    turtle.setheading(0)
+    turtle.pendown()
+    turtle.forward(60)
+    #Draws line up from bottom
+    turtle.setheading(90)
+    turtle.forward(100)
+    turtle.penup()
+    turtle.forward(25)
+    turtle.pendown()
+    turtle.setheading(0)
+    turtle.forward(35)
+    turtle.penup()
+    #Draws 4th line
+    turtle.goto(-278,105)
+    turtle.pendown()
+    turtle.forward(35)
+    turtle.penup()
+    #Draws 3rd line
+    turtle.goto(-278,130)
+    turtle.pendown()
+    turtle.forward(35)
+    turtle.penup()
+    #Draws 1st line
+    turtle.goto(-278,205)
+    turtle.pendown()
+    turtle.forward(35)
+    turtle.setheading(90)
+    turtle.forward(20)
+    turtle.setheading(0)
+    turtle.forward(25)
+    turtle.setheading(90)
+    turtle.forward(50)
+    turtle.setheading(0)
+    #Draws top lines
+    for x in range(4):
+        turtle.forward(100)
+        turtle.setheading(270)
+        turtle.forward(35)
+        turtle.penup()
+        turtle.setheading(90)
+        turtle.forward(35)
+        turtle.setheading(0)
+        turtle.forward(25)
+        turtle.pendown()
+
+
+
+def Move(movement):
+    if(movement == "W"):
+        turtle.setheading(90)
+        turtle.forward(25)
+    elif(movement == "A"):
+        turtle.setheading(180)
+        turtle.forward(25)
+    elif(movement == "S"):
+        turtle.setheading(270)
+        turtle.forward(25)
+    elif(movement == "D"):
+        turtle.setheading(0)
+        turtle.forward(25)
+end = False
+turtle.setup(600, 600)
+turtle.Screen()
+DrawMaze()
+Start()
+turtle.listen()
+print("Move with W,A,S,D")
+while(end == False):
+    move = input().capitalize()
+    Move(move)
+turtle.done()
